@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f24b2422-0653-4f01-b671-8cd8a7457992" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/truffle.js" afterPath="$PROJECT_DIR$/truffle.js" />
+      <change beforePath="$PROJECT_DIR$/contracts/Election.sol" afterPath="$PROJECT_DIR$/contracts/Election.sol" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Election.sol" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Election.sol" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contracts/Election.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -34,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="truffle.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="truffle.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/truffle.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -52,9 +51,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/contracts/Election.sol" />
         <option value="$PROJECT_DIR$/migrations/2_deploy_contracts.js" />
         <option value="$PROJECT_DIR$/truffle.js" />
+        <option value="$PROJECT_DIR$/contracts/Election.sol" />
       </list>
     </option>
   </component>
@@ -72,7 +71,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1366" />
-    <option name="y" value="-772" />
+    <option name="y" value="-4" />
     <option name="width" value="1366" />
     <option name="height" value="772" />
   </component>
@@ -105,7 +104,7 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -144,15 +143,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521493387449</updated>
-      <workItem from="1521493390858" duration="1293000" />
+      <workItem from="1521493390858" duration="2567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1293000" />
+    <option name="totallyTimeSpent" value="2567000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="-772" width="1366" height="772" extended-state="6" />
+    <frame x="1366" y="-4" width="1366" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -187,14 +186,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/contracts/Election.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/migrations/1_initial_migration.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -215,6 +206,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Election.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
           <folding />
         </state>
       </provider>
