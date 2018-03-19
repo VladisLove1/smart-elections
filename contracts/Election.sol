@@ -13,7 +13,8 @@ contract Election {
     uint public candidatesCount;
 
     function Election() public {
-        candidate = 'Blockchain';
+        addCandidate('Blockchain');
+        addCandidate('Groot');
     }
 
     function addCandidate(string _name) private {
