@@ -8,18 +8,19 @@ App = {
   },
 
   initWeb3: function() {
-    if(typeof web3 != undefined){
+    if(typeof web3 !== 'undefined'){
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
     } else {
-      App.web3Provider = web3.providers.HttpProvider('http://localhost:8545');
+      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
       web3 = new Web3(App.web3Provider);
     }
+    console.log(App.contracts.Election);
     return App.initContract();
   },
 
   initContract: function() {
-    $.getJSON('Election.json', function(election) {
+    $.getJSON("Election.json", function(election) {
       //Instantiate a new truffle contract from the artifact
       App.contracts.Election = TruffleContract(election);
       //connect provider to interact with contract
@@ -29,12 +30,12 @@ App = {
   },
 
   render: function() {
-    let electionInstance;
-    let loader = $("#loader");
-    let content = $("#content");
+    var electionInstance;
+    var loader = $("#loader");
+    var ar content = $("#content");
 
     loader.show();
-    content.hide();
+    content.show();
 
     //load account data
     web3.eth.getCoinbase(function(err, account) {
@@ -45,21 +46,21 @@ App = {
     });
 
     //load contract data
-    App.contracts.Election.deployed().then(function(i) {
-      electionInstance = i;
+    App.contracts.Election.deployed().then(function(instance) {
+      electionInstance = instance;
       return electionInstance.candidatesCount();
     }).then(function(candidatesCount){
-      let candidatesResults = $("#candidatesResults");
+      var candidatesResults = $("#candidatesResults");
       candidatesResults.empty();
 
       for(let i = 1; i <= candidatesCount; i++) {
         electionInstance.candidates(i).then(function(candidate) {
-          let id = candidate[0];
-          let name = candidate[1];
-          let voteCount = candidate[2];
+          var id = candidate[0];
+          var name = candidate[1];
+          var voteCount = candidate[2];
 
           //render candidate results
-          let candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>";
+          var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>";
           candidatesResults.append(candidateTemplate);
         });
       }
