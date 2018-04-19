@@ -15,7 +15,6 @@ App = {
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
       web3 = new Web3(App.web3Provider);
     }
-    console.log(App.contracts.Election);
     return App.initContract();
   },
 
@@ -32,7 +31,7 @@ App = {
   render: function() {
     var electionInstance;
     var loader = $("#loader");
-    var ar content = $("#content");
+    var content = $("#content");
 
     loader.show();
     content.show();
