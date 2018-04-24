@@ -1,4 +1,4 @@
-pragma solidity ^0.4.2;
+pragma solidity ^0.4.18;
 
 contract Election {
 
@@ -13,8 +13,8 @@ contract Election {
     uint public candidatesCount;
 
     function Election() public {
-        addCandidate('Blockchain');
-        addCandidate('Groot');
+        addCandidate("Blockchain");
+        addCandidate("Groot");
     }
 
     function addCandidate(string _name) private {
