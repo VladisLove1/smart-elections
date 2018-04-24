@@ -1,3 +1,7 @@
+$.ajaxSetup({
+   async: false
+});
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -34,7 +38,7 @@ App = {
     var content = $("#content");
 
     loader.show();
-    content.show();
+    content.hide();
 
     //load account data
     web3.eth.getCoinbase(function(err, account) {
