@@ -1,7 +1,3 @@
-$.ajaxSetup({
-   async: false
-});
-
 App = {
   web3Provider: null,
   contracts: {},
@@ -28,8 +24,8 @@ App = {
       App.contracts.Election = TruffleContract(election);
       //connect provider to interact with contract
       App.contracts.Election.setProvider(App.web3Provider);
+      return App.render();
     });
-    return App.render();
   },
 
   render: function() {
