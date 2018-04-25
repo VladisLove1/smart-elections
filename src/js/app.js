@@ -48,28 +48,52 @@ App = {
     App.contracts.Election.deployed().then(function(instance) {
       electionInstance = instance;
       return electionInstance.candidatesCount();
-    }).then(function(candidatesCount){
-      var candidatesResults = $("#candidatesResults");
-      candidatesResults.empty();
+    }).then(function(candidatesCount) {
+        var candidatesResults = $("#candidatesResults");
+        candidatesResults.empty();
 
-      for(let i = 1; i <= candidatesCount; i++) {
-        electionInstance.candidates(i).then(function(candidate) {
-          var id = candidate[0];
-          var name = candidate[1];
-          var voteCount = candidate[2];
+        let candidatesSelect = $('#candidatesSelect');
+        candidatesSelect.empty();
 
-          //render candidate results
-          var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>";
-          candidatesResults.append(candidateTemplate);
-        });
+        for (let i = 1; i <= candidatesCount; i++) {
+            electionInstance.candidates(i).then(function (candidate) {
+                var id = candidate[0];
+                var name = candidate[1];
+                var voteCount = candidate[2];
+
+                //render candidate results
+                var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>";
+                candidatesResults.append(candidateTemplate);
+
+                //render voting option
+                let candidateOption = "<option value='" + id + "'>" + name + "</option>";
+                candidatesSelect.append(candidateOption);
+            });
+        }
+        return electionInstance.voters(App.account);
+    }).then(function(hasVoted){
+      if(hasVoted){
+        $('form').hide();
       }
-
       loader.hide();
       content.show();
     }).catch(function(error) {
         console.warn(error);
     });
-  }
+  },
+    
+  castVote: function () {
+      let candidateId = $('#candidatesSelect').val();
+      App.contracts.Election.deployed().then(function(instance){
+        return instance.vote(candidateId, {from: App.account});
+      }).then(function(result){
+        // wait for votes to update
+          $('#content').hide();
+          $('#loader').show();
+      }).catch(function(err){
+        console.error(err);
+      });
+  }    
 };
 
 $(function() {
