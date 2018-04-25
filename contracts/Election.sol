@@ -20,6 +20,10 @@ contract Election {
         _;
     }
 
+    event LogVoteEvent (
+        uint indexed _candidateId
+    );
+
     function Election() public {
         addCandidate("Blockchain");
         addCandidate("Groot");
@@ -34,6 +38,7 @@ contract Election {
         require(_candidateId > 0 && _candidateId <= candidatesCount);
         voters[msg.sender] = true;
         candidates[_candidateId].voteCount++;
+        LogVoteEvent(_candidateId);
     }
 
 }
