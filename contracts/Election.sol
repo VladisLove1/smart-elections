@@ -22,4 +22,8 @@ contract Election {
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
+    function vote(uint _candidateId) public {
+        candidates[_candidateId].voteCount++;
+    }
+
 }
