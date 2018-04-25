@@ -10,7 +10,15 @@ contract Election {
     }
     //fetch candidate
     mapping (uint => Candidate) public candidates;
+    //store accouts that have voted
+    mapping (address => bool) public voters;
+
     uint public candidatesCount;
+
+    modifier voteOnce {
+        require(voters[msg.sender] == false);
+        _;
+    }
 
     function Election() public {
         addCandidate("Blockchain");
@@ -22,7 +30,8 @@ contract Election {
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
-    function vote(uint _candidateId) public {
+    function vote(uint _candidateId) public voteOnce {
+        voters[msg.sender] = true;
         candidates[_candidateId].voteCount++;
     }
 

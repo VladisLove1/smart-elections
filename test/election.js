@@ -27,4 +27,20 @@ contract("Election", function(accounts){
         });
     });
 
+    it("vote received", function(){
+        return Election.deployed().then(function(instance){
+            electionInstance = instance;
+            candidateId = 1;
+            return electionInstance.vote(candidateId, {from: accounts[0]});
+        }).then(function (receipt) {
+            return electionInstance.voters(accounts[0]);
+        }).then(function (voted) {
+            assert(voted, "the voter was marked as voted");
+            return electionInstance.candidates(candidateId);
+        }).then(function (candidate) {
+            let voteCount = candidate[2];
+            assert.equal(voteCount, 1, "candidate received vote");
+        })
+    });
+
 });
