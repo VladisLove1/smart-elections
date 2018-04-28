@@ -1,4 +1,5 @@
-pragma solidity ^0.4.18;
+pragma solidity 0.4.17;
+
 
 contract Election {
 
@@ -9,6 +10,7 @@ contract Election {
         uint voteCount;
     }
     //fetch candidate
+    
     mapping (uint => Candidate) public candidates;
     //store accouts that have voted
     mapping (address => bool) public voters;
@@ -29,16 +31,16 @@ contract Election {
         addCandidate("Groot");
     }
 
-    function addCandidate(string _name) private {
-        candidatesCount++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
-    }
-
     function vote(uint _candidateId) public voteOnce {
         require(_candidateId > 0 && _candidateId <= candidatesCount);
         voters[msg.sender] = true;
         candidates[_candidateId].voteCount++;
         LogVoteEvent(_candidateId);
+    }
+
+    function addCandidate(string _name) private {
+        candidatesCount++;
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
 }
