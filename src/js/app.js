@@ -40,7 +40,7 @@ App = {
         console.log("event triggered", event);
         App.render();
       });
-    })
+    });
   },
 
   render: function() {
@@ -77,11 +77,11 @@ App = {
           var voteCount = candidate[2];
 
           // Render candidate Result
-          let candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
+          var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>";
           candidatesResults.append(candidateTemplate);
           
           // Render candidate ballot option
-          let candidateOption = "<option value='" + id + "' >" + name + "</ option>"
+          var candidateOption = "<option value='" + id + "' >" + name + "</ option>";
           candidatesSelect.append(candidateOption);
         });
       }
@@ -100,7 +100,7 @@ App = {
   },
     
   castVote: function(){
-      let candidateId = $('#candidatesSelect').val();
+      var candidateId = $('#candidatesSelect').val();
       App.contracts.Election.deployed().then(function(instance){
         return instance.vote(candidateId, {from: App.account});
       }).then(function(result){
