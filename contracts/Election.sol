@@ -29,6 +29,9 @@ contract Election {
     function Election() public {
         addCandidate("Blockchain");
         addCandidate("Groot");
+        addCandidate("Vlad");
+        addCandidate("Dana");
+        addCandidate("Test");
     }
 
     function vote(uint _candidateId) public voteOnce {
